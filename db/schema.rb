@@ -11,7 +11,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111114150612) do
+ActiveRecord::Schema.define(:version => 20111209131436) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "efforts", :force => true do |t|
+    t.integer  "project_employee_id"
+    t.float    "estimated"
+    t.float    "actual"
+    t.integer  "days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "employee_id"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "designation"
+    t.string   "experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_employees", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.integer  "client_id"
+    t.string   "name"
+    t.integer  "duration"
+    t.string   "rails_version"
+    t.string   "ruby_version"
+    t.string   "domain"
+    t.integer  "cost"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
