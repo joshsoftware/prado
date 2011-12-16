@@ -17,7 +17,7 @@
           %p.pull-right
             - if user_signed_in?
               %a{:href => "#"} 
-                = current_user.name
+                = current_user.email
               |
               = link_to "Logout", destroy_user_session_path
             - else
